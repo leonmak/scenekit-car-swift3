@@ -50,7 +50,7 @@ public extension UIDevice {
     uname(&systemInfo)
     
 //    let machine = systemInfo.machine
-//    var identifier = ""
+    let identifier = ""
 //    let mirror = reflect(machine)
 //    for i in 0..<reflect(machine).count {
 //      if mirror[i].1.value as Int8 == 0 {

@@ -277,7 +277,7 @@ class ViewController: UIViewController, SCNSceneRendererDelegate {
             let controllers = GCController.controllers()
             if(controllers.count > 0) {
                 
-                var controller: AnyObject = controllers[0]
+                let controller: AnyObject = controllers[0]
                 if let pad = controller.gamepad {
                     if let dpad = pad?.dpad {
                         // directional gamepad profile analog control
@@ -351,10 +351,12 @@ class ViewController: UIViewController, SCNSceneRendererDelegate {
         // make camera follow the car node
         let car = vehicleNode.presentation
         let carPos = car.position
-        let targetPos = SCNVector3Make(carPos.x, Float(30), Float(carPos.z + 25))
+        let targetPos = SCNVector3Make(Float(carPos.x), Float(100), Float(carPos.z))
         var cameraPos = cameraNode.position
         cameraPos = vector_mix(cameraPos, targetPos: targetPos, cameraDamping: cameraDamping)
         cameraNode.position = cameraPos
+        cameraNode.rotation = SCNVector4Make(1, 0, 0, Float(-M_PI_2))
+
         
         // move spot light
         if (scnView.inCarView) {
